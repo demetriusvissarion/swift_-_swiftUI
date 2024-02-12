@@ -94,18 +94,49 @@ import Foundation
 
 
 // Challenge
-let randomInt = Int.random(in: 1..<101)
-
-if randomInt % 5 == 0 && randomInt % 3 == 0
-{print("FizzBuzz")}
-else if randomInt % 3 == 0
-{print("Fizz")}
-else if randomInt % 5 == 0
-{print("Buzz")}
-else
-{print(randomInt)}
+//let randomInt = Int.random(in: 1..<101)
+//
+//if randomInt % 5 == 0 && randomInt % 3 == 0
+//{print("FizzBuzz")}
+//else if randomInt % 3 == 0
+//{print("Fizz")}
+//else if randomInt % 5 == 0
+//{print("Buzz")}
+//else
+//{print(randomInt)}
 
 // Print "Fizz" if `randomInt` is divisible by 3
 // Print "Buzz" if `randomInt` is divisible by 5
 // Print "FizzBuzz" if `randomInt` is divisible by 3 and 5
 // Otherwise, print `randomInt`
+
+
+// bites/06_loops_bite.md
+// Exercise
+//for number in 2321...34325 {
+//    print(number)
+//}
+
+//var sum = 0
+//for number in 2321...34325 {
+//    if number % 2 == 0
+//    {
+//        sum += number
+//    }
+//}
+
+// Write a program to print all the numbers from 2321 to 34325 inclusive.
+// Write a program to sum all of the even numbers in that range.
+
+
+// Challenge
+
+var num = 17
+var factorial = 1
+for number in 1...num {
+    factorial *= number
+}
+
+//Write a program to find the factorial of 17.
+//The factorial of a number is that number multiplied by every number below it until 1. So, 10 factorial is 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1, evaluating to 3628800.
+//When correct, your program should produce the number 355687428096000.
