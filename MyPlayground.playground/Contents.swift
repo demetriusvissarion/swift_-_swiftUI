@@ -131,12 +131,75 @@ import Foundation
 
 // Challenge
 
-var num = 17
-var factorial = 1
-for number in 1...num {
-    factorial *= number
-}
+//var num = 17
+//var factorial = 1
+//for number in 1...num {
+//    factorial *= number
+//}
 
 //Write a program to find the factorial of 17.
 //The factorial of a number is that number multiplied by every number below it until 1. So, 10 factorial is 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1, evaluating to 3628800.
 //When correct, your program should produce the number 355687428096000.
+
+
+
+// bites/07_data_structures_bite.md
+// Exercise 1
+//var myList = ["Cat", "Mouse", "Frog"]
+//let item = myList.remove(at: 1)
+//myList.insert(item, at: 0)
+//myList.insert("Lynx", at: 1)
+// Write some code to amend the list here.
+//print(myList)
+// Should print:
+// ["Mouse", "Lynx", "Cat", "Frog"]
+
+// Exercise 2
+//let myAnimals = ["Cat", "cat", "frog", "cat", "dog", "Dog"]
+//var counters = [String: Int]()
+//// Do not worry about this syntax for now!
+//// All we have done is declared an empty dictionary
+//// with keys being strings and values being numbers
+//
+//// Write some code to count the items in the array here
+//for animal in myAnimals {
+//    let lowercasedAnimal = animal.lowercased()
+//    counters[lowercasedAnimal, default: 0] += 1
+//}
+//
+//print(counters)
+//print(counters["cat"]!) // forced unwrapping
+//// Should print (in any order)
+//// [ "cat": 3, "dog": 2, "frog": 1 ]
+
+// Challenge
+//Complete this program:
+
+var myCountries = ["France", "Spain", "Portugal" ] // Put the names of some countries in here
+
+var countriesFirstLetter = [Character: Int]()
+
+for country in myCountries {
+    let lowercasedCountry = country.lowercased()
+    if let firstLetter = lowercasedCountry.first {
+        countriesFirstLetter[firstLetter, default: 0] += 1
+    }
+}
+
+let allLetters = "abcdefghijklmnopqrstuvwxyz"
+var allLettersCount = [Character: Int]()
+
+for letter in allLetters {
+    allLettersCount[letter] = countriesFirstLetter[letter, default: 0]
+}
+
+let sortedAllLettersCount = allLettersCount.sorted { $0.key < $1.key }
+
+let formattedArray = sortedAllLettersCount.map { "\"\($0.key)\": \($0.value)" }
+
+let finalOutput = "[\(formattedArray.joined(separator: ", "))]"
+
+
+// Program should print a dictionary with each of the letters of the alphabet
+// and the number of countries which begin with that letter.
+// E.g. [ "a": 2, "b": 0, ... ]
