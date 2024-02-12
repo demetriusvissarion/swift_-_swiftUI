@@ -175,31 +175,88 @@ import Foundation
 // Challenge
 //Complete this program:
 
-var myCountries = ["France", "Spain", "Portugal" ] // Put the names of some countries in here
-
-var countriesFirstLetter = [Character: Int]()
-
-for country in myCountries {
-    let lowercasedCountry = country.lowercased()
-    if let firstLetter = lowercasedCountry.first {
-        countriesFirstLetter[firstLetter, default: 0] += 1
-    }
-}
-
-let allLetters = "abcdefghijklmnopqrstuvwxyz"
-var allLettersCount = [Character: Int]()
-
-for letter in allLetters {
-    allLettersCount[letter] = countriesFirstLetter[letter, default: 0]
-}
-
-let sortedAllLettersCount = allLettersCount.sorted { $0.key < $1.key }
-
-let formattedArray = sortedAllLettersCount.map { "\"\($0.key)\": \($0.value)" }
-
-let finalOutput = "[\(formattedArray.joined(separator: ", "))]"
+//var myCountries = ["France", "Spain", "Portugal" ] // Put the names of some countries in here
+//
+//var countriesFirstLetter = [Character: Int]()
+//
+//for country in myCountries {
+//    let lowercasedCountry = country.lowercased()
+//    if let firstLetter = lowercasedCountry.first {
+//        countriesFirstLetter[firstLetter, default: 0] += 1
+//    }
+//}
+//
+//let allLetters = "abcdefghijklmnopqrstuvwxyz"
+//var allLettersCount = [Character: Int]()
+//
+//for letter in allLetters {
+//    allLettersCount[letter] = countriesFirstLetter[letter, default: 0]
+//}
+//
+//let sortedAllLettersCount = allLettersCount.sorted { $0.key < $1.key }
+//
+//let formattedArray = sortedAllLettersCount.map { "\"\($0.key)\": \($0.value)" }
+//
+//let finalOutput = "[\(formattedArray.joined(separator: ", "))]"
 
 
 // Program should print a dictionary with each of the letters of the alphabet
 // and the number of countries which begin with that letter.
 // E.g. [ "a": 2, "b": 0, ... ]
+
+
+
+// bites/08_functions_bite.md
+
+// Exercise
+
+//// Your code goes here.
+//func addFive(_ number: Int) -> Int {
+//    return number + 5
+//}
+//
+//print(addFive(4))
+//// Should print: "9"
+//
+//print(addFive(2132))
+//// Should print: "2137"
+//
+//// Your code goes here.
+//func subtractLowFromHigh(_ number1: Int, _ number2: Int) -> Int {
+//    if number1 > number2
+//    {
+//        return number1 - number2
+//    }
+//    else
+//    {
+//        return number2 - number1
+//    }
+//}
+//
+//print(subtractLowFromHigh(2, 3))
+//// Should print "1"
+//
+//print(subtractLowFromHigh(3, 2))
+//// Should print "1"
+//
+//print(addFive(subtractLowFromHigh(1463, 16475)))
+//// Should print "15017"
+
+
+// Challenge
+//Write a method called superify which takes a string and adds the word "super" to the start. So given 'woman' it returns 'superwoman', given 'dog' it returns 'superdog'.
+//Then use it to create the ultimate feline superhero, like this:
+func superify(_ element: String) -> String {
+    return "super\(element)"
+}
+
+print(superify(superify(superify(superify(element: "cat")))))
+
+
+func superify(element: String) -> String {
+    return "super\(element)"
+}
+
+print(superify(element: superify(element: superify(element: superify(element: "cat")))))
+// Should print:
+//"supersupersupersupercat"
