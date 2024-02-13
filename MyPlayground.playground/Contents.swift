@@ -388,50 +388,114 @@ import Foundation
 //black.getInformation(kind: "Neutral")
 //// Returns: Black does not like or dislike playing with squirrels
 
-// Your implementation here (without struct)
-class Pet {
-    var name: String
-    var owner: String
-    var likes: [String]
-    var dislikes: [String]
-    var neutral: [String]
+//// Your implementation here (without struct)
+//class Pet {
+//    var name: String
+//    var owner: String
+//    var likes: [String]
+//    var dislikes: [String]
+//    var neutral: [String]
+//
+//    
+//    init(name: String, owner: String, likes: [String], dislikes: [String], neutral: [String]) {
+//        self.name = name
+//        self.owner = owner
+//        self.likes = likes
+//        self.dislikes = dislikes
+//        self.neutral = neutral
+//    }
+//    
+//    func getInformation(kind: String) -> String {
+//        var selector = kind.lowercased()
+//        switch selector {
+//            case "likes":
+//                return "\(name.capitalized) likes \(likes[0]), \(likes[1]) and \(likes[2])!"
+//            case "dislikes":
+//                return "\(name.capitalized) dislikes \(dislikes[0]) and \(dislikes[1])!"
+//            case "neutral":
+//                return "\(name.capitalized) does not like or dislike playing with \(neutral[0])"
+//            default:
+//                return "Invalid request."
+//        }
+//    }
+//}
+//
+//let black = Pet(
+//  name: "Black",
+//  owner: "Josué",
+//  likes: ["running", "chasing", "singing"],
+//  dislikes: ["octopus", "cats"],
+//  neutral: ["squirrels"]
+//)
+//
+//
+//black.getInformation(kind: "Likes")
+//// Returns: Black likes running, chasing and singing!
+//black.getInformation(kind: "Dislikes")
+//// Returns: Black dislikes octopus and cats!
+//black.getInformation(kind: "Neutral")
+//// Returns: Black does not like or dislike playing with squirrels
 
-    
-    init(name: String, owner: String, likes: [String], dislikes: [String], neutral: [String]) {
-        self.name = name
-        self.owner = owner
-        self.likes = likes
-        self.dislikes = dislikes
-        self.neutral = neutral
+
+// 11_optionals_bite.md
+// Exercise: Handling Optional Pet Name
+//Declare an optional string variable to store a pet's nickname. Then, write a function to print a greeting to the pet using their nickname. If the nickname is nil, the function should print a default greeting.
+
+//var petNickname: String?
+//// Write your function here
+//func greetPet(_ petNickname: String?){
+//    if let actualValue = petNickname {
+//        print("Hey there \(actualValue)!")
+//    } else {
+//        print("Hey little buddy!")
+//    }
+//}
+//
+//greetPet("Biscuit")
+//// should output: "Hey there Biscuit!"
+//greetPet(nil)
+//// should output: "Hey little buddy!"
+
+
+// Challenge: Book Club
+//You're developing a feature for a book review application where users are required to provide their favourite book's title and can optionally add a description and their personal reason for favouring the book. Write a function that accepts a non-optional title string and two optional strings: description and reason. The function should output a well-formatted message with the available information. Handle the absence of optional details using if let or guard let.
+
+//Function Signature
+func printFavouriteBookDetails(title: String, description: String?, reason: String?) {
+    if let actualDescription = description, let actualReason = reason {
+        print("Title: \"\(title)\"")
+        print("Description: \"\(actualDescription)\"")
+        print("Reason: \"\(actualReason)\"")
     }
-    
-    func getInformation(kind: String) -> String {
-        var selector = kind.lowercased()
-        switch selector {
-            case "likes":
-                return "\(name.capitalized) likes \(likes[0]), \(likes[1]) and \(likes[2])!"
-            case "dislikes":
-                return "\(name.capitalized) dislikes \(dislikes[0]) and \(dislikes[1])!"
-            case "neutral":
-                return "\(name.capitalized) does not like or dislike playing with \(neutral[0])"
-            default:
-                return "Invalid request."
-        }
+    else if let actualDescription = description {
+        print("Title: \"\(title)\"")
+        print("Description: \"\(actualDescription)\"")
+    } 
+    else if let actualReason = reason {
+        print("Title: \"\(title)\"")
+        print("Reason: \"\(actualReason)\"")
+    }
+    else {
+        print("Title: \"\(title)\"")
     }
 }
 
-let black = Pet(
-  name: "Black",
-  owner: "Josué",
-  likes: ["running", "chasing", "singing"],
-  dislikes: ["octopus", "cats"],
-  neutral: ["squirrels"]
-)
+//Example Output
+
+//If all values are provided:
+printFavouriteBookDetails(title: "Hot Milk", description: "A vibrant and starkly humorous tale of a mother-daughter relationship and the complexities of identity.", reason: "It's a compelling exploration of the human psyche and personal transformation.")
+//Title: "Hot Milk"
+//Description: "A vibrant and starkly humorous tale of a mother-daughter relationship and the complexities of identity."
+//Reason: "It's a compelling exploration of the human psyche and personal transformation."
+
+//If reason is not provided:
+printFavouriteBookDetails(title: "Hot Milk", description: "A vibrant and starkly humorous tale of a mother-daughter relationship and the complexities of identity.", reason: nil)
+//Title: "Hot Milk"
+//Description: "A vibrant and starkly humorous tale of a mother-daughter relationship and the complexities of identity."
 
 
-black.getInformation(kind: "Likes")
-// Returns: Black likes running, chasing and singing!
-black.getInformation(kind: "Dislikes")
-// Returns: Black dislikes octopus and cats!
-black.getInformation(kind: "Neutral")
-// Returns: Black does not like or dislike playing with squirrels
+//If description is not provided:
+printFavouriteBookDetails(title: "Hot Milk", description: nil, reason: "It's a compelling exploration of the human psyche and personal transformation.")
+
+//If only title is provided:
+printFavouriteBookDetails(title: "Hot Milk", description: nil, reason: nil)
