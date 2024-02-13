@@ -246,17 +246,76 @@ import Foundation
 // Challenge
 //Write a method called superify which takes a string and adds the word "super" to the start. So given 'woman' it returns 'superwoman', given 'dog' it returns 'superdog'.
 //Then use it to create the ultimate feline superhero, like this:
-func superify(_ element: String) -> String {
-    return "super\(element)"
-}
-
-print(superify(superify(superify(superify(element: "cat")))))
-
-
-func superify(element: String) -> String {
-    return "super\(element)"
-}
-
-print(superify(element: superify(element: superify(element: superify(element: "cat")))))
+//func superify(_ element: String) -> String {
+//    return "super\(element)"
+//}
+//
+//print(superify(superify(superify(superify(element: "cat")))))
+//
+//
+//func superify(element: String) -> String {
+//    return "super\(element)"
+//}
+//
+//print(superify(element: superify(element: superify(element: superify(element: "cat")))))
 // Should print:
 //"supersupersupersupercat"
+
+
+
+// bites/09_classes_bite.md
+
+// Exercise
+//Create an Introducer class that has two methods, announce and introduce.
+//It should work like this:
+//class Introducer {
+//    let name: String
+//    
+//    init(name: String) {
+//        self.name = name
+////        self.who = name
+//    }
+//    
+//    func announce() -> String {
+//      return "I am \(name)!"
+//    }
+//    
+//    func introduce(who: String) -> String {
+//      return "Hello \(who), I am \(name)!"
+//    }
+//}
+//
+//var introducer = Introducer(name: "Josué")
+//
+//print(introducer.announce())
+//// Should print: "I am Josué!"
+//
+//print(introducer.introduce(who: "Fred"))
+//// Should print: "Hello Fred, I am Josué!"
+
+// Challenge
+//Create a class called Reminder. It should work like this:
+class Reminder {
+    let name: String
+    var task: String
+    
+    init(_ name: String) {
+        self.name = name
+        self.task = ""
+    }
+    
+    func remindMeTo(_ task: String) {
+        self.task  = task
+    }
+    
+    func remind() -> String {
+        return "\(name), \(task)!"
+    }
+}
+
+var reminder = Reminder("Josué")
+
+reminder.remindMeTo("Walk the dog")
+
+print(reminder.remind())
+// Should print: "Josué! Walk the dog!"
