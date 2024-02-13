@@ -295,27 +295,143 @@ import Foundation
 
 // Challenge
 //Create a class called Reminder. It should work like this:
-class Reminder {
-    let name: String
-    var task: String
+//class Reminder {
+//    let name: String
+//    var task: String
+//    
+//    init(_ name: String) {
+//        self.name = name
+//        self.task = ""
+//    }
+//    
+//    func remindMeTo(_ task: String) {
+//        self.task  = task
+//    }
+//    
+//    func remind() -> String {
+//        return "\(name), \(task)!"
+//    }
+//}
+//
+//var reminder = Reminder("Josué")
+//
+//reminder.remindMeTo("Walk the dog")
+//
+//print(reminder.remind())
+// Should print: "Josué! Walk the dog!"
+
+
+
+// bites/10_type_annotations_bite.md
+// Exercise
+//Add type annotations to the following programs:
+
+//let myPets: [String] = ["Black", "Erik", "Minerva"]
+//var myPetsHobbies: [String: String] = [
+//  "Black": "Run",
+//  "Erik": "Play",
+//  "Minerva": "Listen to music"
+//]
+//let numberOfMuseumsLeftToVisit: Int = 0
+//var moneyLeftAtTheEndOfCurrentMonth: Double = 0
+
+// Challenge
+//Implement the following program based on the below specifications (and use type annotations!):
+
+//// Your implementation here (with struct)
+//class Pet {
+//    struct Details {
+//        var likes: [String]
+//        var dislikes: [String]
+//        var neutral: [String]
+//    }
+//    
+//    var name: String
+//    var owner: String
+//    var details: Details
+//
+//    
+//    init(name: String, owner: String, likes: [String], dislikes: [String], neutral: [String]) {
+//        self.name = name
+//        self.owner = owner
+//        self.details = Details(likes: likes, dislikes: dislikes, neutral:neutral)
+//    }
+//    
+//    func getInformation(kind: String) -> String {
+//        var selector = kind.lowercased()
+//        switch selector {
+//            case "likes":
+//                return "\(name.capitalized) likes \(details.likes[0]), \(details.likes[1]) and \(details.likes[2])!"
+//            case "dislikes":
+//                return "\(name.capitalized) dislikes \(details.dislikes[0]) and \(details.dislikes[1])!"
+//            case "neutral":
+//                return "\(name.capitalized) does not like or dislike playing with \(details.neutral[0])"
+//            default:
+//                return "Invalid request."
+//        }
+//    }
+//}
+//
+//let black = Pet(
+//  name: "Black",
+//  owner: "Josué",
+//  likes: ["running", "chasing", "singing"],
+//  dislikes: ["octopus", "cats"],
+//  neutral: ["squirrels"]
+//)
+//
+//
+//black.getInformation(kind: "Likes")
+//// Returns: Black likes running, chasing and singing!
+//black.getInformation(kind: "Dislikes")
+//// Returns: Black dislikes octopus and cats!
+//black.getInformation(kind: "Neutral")
+//// Returns: Black does not like or dislike playing with squirrels
+
+// Your implementation here (without struct)
+class Pet {
+    var name: String
+    var owner: String
+    var likes: [String]
+    var dislikes: [String]
+    var neutral: [String]
+
     
-    init(_ name: String) {
+    init(name: String, owner: String, likes: [String], dislikes: [String], neutral: [String]) {
         self.name = name
-        self.task = ""
+        self.owner = owner
+        self.likes = likes
+        self.dislikes = dislikes
+        self.neutral = neutral
     }
     
-    func remindMeTo(_ task: String) {
-        self.task  = task
-    }
-    
-    func remind() -> String {
-        return "\(name), \(task)!"
+    func getInformation(kind: String) -> String {
+        var selector = kind.lowercased()
+        switch selector {
+            case "likes":
+                return "\(name.capitalized) likes \(likes[0]), \(likes[1]) and \(likes[2])!"
+            case "dislikes":
+                return "\(name.capitalized) dislikes \(dislikes[0]) and \(dislikes[1])!"
+            case "neutral":
+                return "\(name.capitalized) does not like or dislike playing with \(neutral[0])"
+            default:
+                return "Invalid request."
+        }
     }
 }
 
-var reminder = Reminder("Josué")
+let black = Pet(
+  name: "Black",
+  owner: "Josué",
+  likes: ["running", "chasing", "singing"],
+  dislikes: ["octopus", "cats"],
+  neutral: ["squirrels"]
+)
 
-reminder.remindMeTo("Walk the dog")
 
-print(reminder.remind())
-// Should print: "Josué! Walk the dog!"
+black.getInformation(kind: "Likes")
+// Returns: Black likes running, chasing and singing!
+black.getInformation(kind: "Dislikes")
+// Returns: Black dislikes octopus and cats!
+black.getInformation(kind: "Neutral")
+// Returns: Black does not like or dislike playing with squirrels
